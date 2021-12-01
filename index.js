@@ -1,27 +1,57 @@
 console.log("hello wooord!")
 
+function saveFunction() {
+    var name = document.getElementById("fname").value;
+    
+    submitOK = "true";
 
-var name = document.getElementById("fname").value;
+    if (name.length > 255 && name.length < 2) {
+      alert("The name may have no more than 2 characters or more than 255 chars");
+      submitOK = "false";
+    }
+    
+    var gender=document.querySelector('input[name="gender"]:checked').value;
+    console.log(gender,name)
 
-// var age = document.getElementById("age").value;
-// var fname = document.getElementById("fname").value;
-// submitOK = "true";
+    if (submitOK == "false") {
+      return false;
+    }
 
-// if (fname.length > 10) {
-//   alert("The name may have no more than 10 characters");
-//   submitOK = "false";
-// }
+    }
+function submitFunction() {
+    console.log("submit")
 
-// if (isNaN(age) || age < 1 || age > 100) {
-//   alert("The age must be a number between 1 and 100");
-//   submitOK = "false";
-// }
+    var name = document.getElementById("fname").value;
+    submitOK = "true";
+    if (name.length > 255 && name.length < 2) {
+      alert("The name may have no more than 2 characters or more than 255 chars");
+      submitOK = "false";
+    }
+    console.log(name)
+    myUrl="https://api.genderize.io/?name="+name;
+    res=httpGet(myUrl); 
+    console.log(res);
 
-// if (at == -1) {
-//   alert("Not a valid e-mail!");
-//   submitOK = "false";
-// }
+    var mydata = JSON.parse(res);
+    document.getElementById("genderlabel").innerHTML = mydata.gender;
+    document.getElementById("probabilitylabel").innerHTML = mydata.probability;
 
-// if (submitOK == "false") {
-//   return false;
-// }
+    document.getElementById("savedgenderlabel").innerHTML = mydata.gender;
+
+    if (submitOK == "false") {
+        return false;
+    }
+
+}
+function clearFunction() {
+    dconsole.log("clear")
+}
+
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}

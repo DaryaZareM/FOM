@@ -13,20 +13,19 @@
         <label for="html">Male</label><br>
         <input type="radio" id="female" name="gender" value="Female">
         <label for="css">Female</label><br>
-        <input type="submit" value="Submit" ><br>
-        <input type="submit" value="Save">
-        
+        <button onclick="submitFunction()">Submit</button><br>
+        <button onclick="saveFunction()">Save</button>
     </div>
     <div class = "flex-item-left">
         <h1>Prediction</h1>
-        <label for="pgender">Male</label><br> <!-- TODO -->
-        <label for="percent">98%</label><br> <!-- TODO -->
+        <label for="pgender"  id="genderlabel">Male</label><br> <!-- TODO -->
+        <label for="percent" id="probabilitylabel">98%</label><br> <!-- TODO -->
         <div class="saved-answer ">
             <h2>saved answer</h2>
             <br>
-            <label for="pgender">Male</label> <!-- TODO -->
+            <label for="pgender" id="savedgenderlabel">Male</label> <!-- TODO -->
             <br>
-            <input type="submit" value="Clear">
+            <button onclick="clearFunction()">Clear</button>
         </div>
     </div>
 
