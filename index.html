@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="flex-container">
+    <div class = "flex-item-left">
+        <h1>Mr. or Ms.</h1>
+        <label for="fname">name:</label>
+        <input type="text" id="fname" name="fname"><br>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="html">Male</label><br>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="css">Female</label><br>
+        <input type="submit" value="Submit" ><br>
+        <input type="submit" value="Save">
+        
+    </div>
+    <div class = "flex-item-left">
+        <h1>Prediction</h1>
+        <label for="pgender">Male</label><br> <!-- TODO -->
+        <label for="percent">98%</label><br> <!-- TODO -->
+        <div class="saved-answer ">
+            <h2>saved answer</h2>
+            <br>
+            <label for="pgender">Male</label> <!-- TODO -->
+            <br>
+            <input type="submit" value="Clear">
+        </div>
+    </div>
+
+</div>
+<script src="index.js"></script>
+
+</body>
+</html>

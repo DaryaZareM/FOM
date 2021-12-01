@@ -1,0 +1,68 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    box-sizing: border-box;
+}
+
+body{
+    content: "";
+    background: url("morf.jpg");
+    /* opacity: 0.5; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+
+.flex-container {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    background-color: rgb(182, 176, 235);
+    box-shadow: 0 0 50px rgba(32, 18, 110, 0.4);
+    opacity: 0.94;
+    padding: 1.5rem 0rem 1.6rem 0rem;
+    display: flex;
+}
+
+.flex-item-left {
+    padding: 50px;
+}
+
+.flex-item-right {
+    display: flex;
+    flex-basis: auto;
+}
+.saved-answer {
+    padding: 3px;
+    border: 2px dashed rgba(68, 67, 67, 0.719);
+}
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    margin: 5px;
+    background:rgb(208, 253, 156); 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    border: 2px solid rgba(68, 67, 67, 0.719);
+}
