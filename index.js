@@ -7,7 +7,7 @@
  * - if radio button has clicked save that and if not save the prediction result
  */
  function checkFormat(name) {
-  var isValid=!(/^[a-zA-Z]+$/i.test(name))
+  var isValid=!(/^[a-z A-Z]+$/i.test(name))
   if (name.length > 255 || name.length < 2 || isValid) {
     alert("The name may have no more than 2 characters or more than 255 chars or has not only english chars");
     document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars or has not only english chars";
