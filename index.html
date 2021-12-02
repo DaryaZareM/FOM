@@ -12,20 +12,20 @@
         <label for="fname">name:</label>
         <input type="text" id="fname" name="fname"><br>
         <input type="radio" id="male" name="gender" value="Male">
-        <label for="html">Male</label><br>
+        <label for="mgender">Male</label><br>
         <input type="radio" id="female" name="gender" value="Female">
-        <label for="css">Female</label><br>
+        <label for="fgender">Female</label><br>
         <button onclick="submitFunction()">Predict</button><br>
         <button onclick="saveFunction()">Save</button>
     </div>
     <div class = "flex-item-left">
         <h1>Prediction</h1>
-        <label for="pgender"  id="genderlabel">Male</label><br> 
-        <label for="percent" id="probabilitylabel">98%</label><br> 
+        <label for="pgender"  id="genderlabel">sex</label><br> 
+        <label for="percent" id="probabilitylabel">0.0%</label><br> 
         <div class="saved-answer ">
             <h2>saved answer</h2>
             <br>
-            <label for="pgender" id="savedgenderlabel">Male</label>
+            <label for="pgender" id="savedgenderlabel">sex</label>
             <br>
             <button onclick="clearFunction()">Clear</button>
         </div>
