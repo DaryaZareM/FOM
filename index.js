@@ -6,18 +6,27 @@
  * - it request to site and shows results
  * - if radio button has clicked save that and if not save the prediction result
  */
+ function checkFormat(name) {
+  var isValid=!(/^[a-zA-Z]+$/i.test(name))
+  if (name.length > 255 || name.length < 2 || isValid) {
+    alert("The name may have no more than 2 characters or more than 255 chars or has not only english chars");
+    document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars or has not only english chars";
+    return false;
+  }
+  return true;
+
+ }
+
+
 function saveFunction() {
   document.getElementById("myAlert").innerHTML ="";
   console.log("save")
     var name = document.getElementById("fname").value;
     submitOK = "true";
     /**
-     * handle if input schem was not valid //TODO
+     * handle if input schem was not valid 
      * */
-    if (name.length > 255 || name.length < 2) {
-      alert("The name may have no more than 2 characters or more than 255 chars");
-      document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars";
-      submitOK = "false";
+    if (!checkFormat(name)) {
       return false;
     }
     myUrl="https://api.genderize.io/?name="+name;
@@ -72,12 +81,9 @@ function submitFunction() {
     var name = document.getElementById("fname").value;
     submitOK = "true";
     /**
-     * handle if input schem was not valid //TODO
+     * handle if input schem was not valid
      * */
-    if (name.length > 255 || name.length < 2) {
-      alert("The name may have no more than 2 characters or more than 255 chars");
-      document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars";
-      submitOK = "false";
+    if (!checkFormat(name)) {
       return false;
     }
 
@@ -123,13 +129,9 @@ function clearFunction() {
     var name = document.getElementById("fname").value;
     submitOK = "true";
     /**
-     * handle if input schem was not valid //TODO
+     * handle if input schem was not valid
      * */
-    if (name.length > 255 || name.length < 2) {
-      alert("The name may have no more than 2 characters or more than 255 chars");
-      document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars";
-      submitOK = "false";
-
+     if (!checkFormat(name)) {
       return false;
     }
 
