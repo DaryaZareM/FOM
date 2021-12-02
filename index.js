@@ -21,7 +21,10 @@ function saveFunction() {
       return false;
     }
     myUrl="https://api.genderize.io/?name="+name;
-    res=httpGet(myUrl); 
+    res=httpGet(myUrl);
+    if(!res){
+      return false;
+    } 
     console.log(res);
     var mydata = JSON.parse(res);
     /**
@@ -80,6 +83,9 @@ function submitFunction() {
 
     myUrl="https://api.genderize.io/?name="+name;
     res=httpGet(myUrl); 
+    if(!res){
+      return false;
+    }
     console.log(res);
     var mydata = JSON.parse(res);
     /**
@@ -143,6 +149,15 @@ function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
+    try
+    {
+      xmlHttp.send( null );
+    }
+    catch(e)
+    {
+      document.getElementById("myAlert").innerHTML ="ERROR not connected";
+      return false;
+    }
+    
     return xmlHttp.responseText;
 }
