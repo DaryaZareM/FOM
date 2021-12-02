@@ -6,6 +6,7 @@ function saveFunction() {
     submitOK = "true";
     if (name.length > 255 || name.length < 2) {
       alert("The name may have no more than 2 characters or more than 255 chars");
+      document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars";
       submitOK = "false";
 
       return false;
@@ -17,9 +18,16 @@ function saveFunction() {
     //if rea is null //TODO
     console.log(res);
     var mydata = JSON.parse(res);
-    document.getElementById("probabilitylabel").innerHTML = mydata.probability;
-    document.getElementById("genderlabel").innerHTML = mydata.gender;
-    
+    if (mydata.gender===null){
+      document.getElementById("myAlert").innerHTML ="server dose not have this name!";
+      document.getElementById("genderlabel").innerHTML = 'null';
+      document.getElementById("probabilitylabel").innerHTML = mydata.probability;
+
+    }else{
+      document.getElementById("genderlabel").innerHTML = mydata.gender;
+      document.getElementById("probabilitylabel").innerHTML = mydata.probability;
+    }
+
     var gender;
     if (document.getElementById('female').checked || document.getElementById('male').checked) {
       gender=document.querySelector('input[name="gender"]:checked').value;
@@ -27,8 +35,13 @@ function saveFunction() {
       localStorage.setItem(name, gender);
       document.getElementById("savedgenderlabel").innerHTML = gender;
     }else{
+      if (mydata.gender===null){
+      document.getElementById("savedgenderlabel").innerHTML = 'nul';
+      gender= 'null'
+      }
       document.getElementById("savedgenderlabel").innerHTML = mydata.gender;
       gender= mydata.gender
+      
     }
     localStorage.setItem( name,gender);
 
@@ -45,6 +58,7 @@ function submitFunction() {
     submitOK = "true";
     if (name.length > 255 || name.length < 2) {
       alert("The name may have no more than 2 characters or more than 255 chars");
+      document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars";
       submitOK = "false";
 
       return false;
@@ -53,10 +67,17 @@ function submitFunction() {
     res=httpGet(myUrl); 
     //if rea is null //TODO
     console.log(res);
-
     var mydata = JSON.parse(res);
-    document.getElementById("genderlabel").innerHTML = mydata.gender;
-    document.getElementById("probabilitylabel").innerHTML = mydata.probability;
+
+    if (mydata.gender===null){
+      document.getElementById("myAlert").innerHTML ="server dose not have this name!";
+      document.getElementById("genderlabel").innerHTML = 'null';
+      document.getElementById("probabilitylabel").innerHTML = mydata.probability;
+
+    }else{
+      document.getElementById("genderlabel").innerHTML = mydata.gender;
+      document.getElementById("probabilitylabel").innerHTML = mydata.probability;
+    }
 
     if (localStorage.getItem(name)){
       document.getElementById("savedgenderlabel").innerHTML = localStorage.getItem(name);
@@ -75,6 +96,7 @@ function clearFunction() {
     submitOK = "true";
     if (name.length > 255 || name.length < 2) {
       alert("The name may have no more than 2 characters or more than 255 chars");
+      document.getElementById("myAlert").innerHTML ="The name may have no more than 2 characters or more than 255 chars";
       submitOK = "false";
 
       return false;
