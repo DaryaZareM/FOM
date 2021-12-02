@@ -1,3 +1,6 @@
+/**
+set font and some default atterbutes
+*/
 * {
     margin: 0px;
     padding: 0px;
@@ -5,6 +8,11 @@
     box-sizing: border-box;
 }
 
+/**
+for body
+set background image
+be responsive {position: relative}
+*/
 body{
     content: "";
     background: url("morf.jpg");
@@ -23,21 +31,12 @@ body{
     position: relative;
     z-index: -1;
     display: flex;
-    /* opacity: 0.5; */
-    /* top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-    
-    
-    justify-content: center;
-    align-content: center;
-    align-items: center; */
   }
 
-
+/**
+for error box
+set it on top of page {position: absolute}
+*/
 .error {
     border-radius: 20px;
     background-color: rgba(250, 45, 148, 0.411);
@@ -45,11 +44,13 @@ body{
     opacity: 0.94;
     display: flex;
     position: absolute;
-    top: 10px;
-
-    
+    top: 10px;  
 }
 
+/**
+for main box in center
+display flex mode and is responsive
+*/
 .flex-container {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
@@ -59,19 +60,25 @@ body{
     padding: 1.5rem 0rem 1.6rem 0rem;
     display: flex;
 }
-
+/**
+for two div in in main box seprate vertically (left and right)
+display flex mode and is responsive
+*/
 .flex-item-left {
     padding: 50px;
 }
 
-.flex-item-right {
-    display: flex;
-    flex-basis: auto;
-}
+/**
+for save box with dashed border
+*/
 .saved-answer {
     padding: 3px;
     border: 2px dashed rgba(68, 67, 67, 0.719);
 }
+
+/**
+for input text area
+*/
 input[type=text] {
     padding:5px; 
     border:2px solid #ccc; 
@@ -79,13 +86,16 @@ input[type=text] {
     border-radius: 5px;
 }
 
+/**
+for input button
+*/
 button {
     padding:5px 15px; 
     margin: 5px;
-    background:rgb(208, 253, 156); 
+    background:rgb(174, 248, 159); 
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px; 
-    border: 2px solid rgba(68, 67, 67, 0.719);
+    border: 2px solid rgba(208, 250, 195, 0.719);
 }
