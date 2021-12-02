@@ -16,7 +16,15 @@
   return true;
 
  }
-
+ /**
+  * clear gender radio buttons
+  */
+ function clearAllRadios() {
+  var radList = document.getElementsByName('gender');
+  for (var i = 0; i < radList.length; i++) {
+    if(radList[i].checked) radList[i].checked = false;
+  }
+}
 
 function saveFunction() {
   document.getElementById("myAlert").innerHTML ="";
@@ -29,7 +37,17 @@ function saveFunction() {
     if (!checkFormat(name)) {
       return false;
     }
-    myUrl="https://api.genderize.io/?name="+name;
+    document.getElementById("genderlabel").innerHTML = '';
+    document.getElementById("probabilitylabel").innerHTML = '';
+
+    var gender;
+    if (document.getElementById('female').checked || document.getElementById('male').checked) {
+      gender=document.querySelector('input[name="gender"]:checked').value;
+      console.log(gender,name)
+      localStorage.setItem(name, gender);
+      document.getElementById("savedgenderlabel").innerHTML = gender;
+    }else{
+      myUrl="https://api.genderize.io/?name="+name;
     res=httpGet(myUrl);
     if(!res){
       return false;
@@ -47,14 +65,6 @@ function saveFunction() {
       document.getElementById("genderlabel").innerHTML = mydata.gender;
       document.getElementById("probabilitylabel").innerHTML = mydata.probability;
     }
-
-    var gender;
-    if (document.getElementById('female').checked || document.getElementById('male').checked) {
-      gender=document.querySelector('input[name="gender"]:checked').value;
-      console.log(gender,name)
-      localStorage.setItem(name, gender);
-      document.getElementById("savedgenderlabel").innerHTML = gender;
-    }else{
       if (mydata.gender===null){
         document.getElementById("savedgenderlabel").innerHTML = 'nul';
         gender= 'null'
@@ -62,11 +72,14 @@ function saveFunction() {
       document.getElementById("savedgenderlabel").innerHTML = mydata.gender;
       gender= mydata.gender
     }
+    clearAllRadios();
     /**
      * save name and gender on local Storage
      */
+     
     localStorage.setItem( name,gender);
     }
+
 
 /**
  * @
@@ -114,7 +127,7 @@ function submitFunction() {
     }else{
       document.getElementById("savedgenderlabel").innerHTML = 'not saved';
     }
-
+    clearAllRadios()
 }
 /**
  * @returns nothing if had no errors
@@ -137,7 +150,7 @@ function clearFunction() {
 
     localStorage.removeItem( name);
     document.getElementById("savedgenderlabel").innerHTML = '---';
-    
+    clearAllRadios()
 
 }
 
