@@ -52,7 +52,7 @@ for main box in center
 display flex mode and is responsive
 */
 .flex-container {
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid rgb(211, 208, 241);
     border-radius: 20px;
     background-color: rgb(182, 176, 235);
     box-shadow: 0 0 50px rgba(32, 18, 110, 0.4);
